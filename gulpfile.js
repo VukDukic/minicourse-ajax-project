@@ -13,7 +13,7 @@ gulp.task('css', function() {
 
 // Move to dist
 gulp.task('js', ['css'], function() {
-  return gulp.src('js/*')
+  return gulp.src('js/**/*')
   .pipe(gulp.dest('dist/js'));
 });
 
