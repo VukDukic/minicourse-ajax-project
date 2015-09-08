@@ -17,12 +17,11 @@ function loadData() {
     var $city = $('#city').val();
     var loc = $street + ', ' + $city;
     var bgimg =
-    '<img class="bgimg" src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location='
-        + loc +'>';
+    '<img class="bgimg" src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=' + loc +'">';
     $body.append(bgimg);
 
     return false;
-};
+}
 
 $('#form-container').submit(loadData);
 
