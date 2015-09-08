@@ -12,13 +12,17 @@ function loadData() {
     $nytElem.text("");
 
     // load streetview
-
     var $street = $('#street').val();
     var $city = $('#city').val();
     var loc = $street + ', ' + $city;
-    var bgimg =
-    '<img class="bgimg" src="https://maps.googleapis.com/maps/api/streetview?size=600x300&location=' + loc +'">';
-    $body.append(bgimg);
+
+    //Update greeting
+    $greeting.text("So, you want to live in " + loc + "?");
+
+    var streetviewUrl = 'https://maps.googleapis.com/maps/api/' +
+        'streetview?size=600x300&location=' + loc + '';
+    $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
+
 
     return false;
 }
