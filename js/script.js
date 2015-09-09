@@ -16,13 +16,29 @@ function loadData() {
     var $city = $('#city').val();
     var loc = $street + ', ' + $city;
 
-    //Update greeting
+    // Update greeting
     $greeting.text("So, you want to live in " + loc + "?");
 
     var streetviewUrl = 'https://maps.googleapis.com/maps/api/' +
         'streetview?size=600x300&location=' + loc + '';
     $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 
+    // NYT Article Search Results
+    // AJAX Request
+    $.getJSON(
+        'http://api.nytimes.com/svc/search/v2/articlesearch.' +
+        'json?q=search+term' +
+        '&api-key=d063d63c7bf2373bfd5f718418f6e128:0:62722835',
+        function (data) {
+            console.log(data);
+    });
+
+    // Iterate response
+
+    // <ul id="nytimes-articles" class="article-list"></ul>
+
+    // Update NYT Header
+    $nytHeaderElem.text("Recent New York Times Articles in " + loc);
 
     return false;
 }
