@@ -37,7 +37,7 @@ function loadData() {
 
             // Iterate response
             for (var i = 0; i < numArticles; i++) {
-                $nytElem.text = article[i];
+                $nytElem.text(article[i]);
                 // <ul id="nytimes-articles" class="article-list"></ul>
             }
     });
