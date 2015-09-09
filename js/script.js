@@ -15,7 +15,7 @@ function loadData() {
   var $street = $('#street').val();
   var $city = $('#city').val();
   var loc = $street + ', ' + $city;
-  var locURI = $street + $city;
+
 
   // Update greeting
   $greeting.text("So, you want to live in " + loc + "?");
@@ -25,6 +25,12 @@ function loadData() {
   $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 
   // NYT Article Search Results
+
+  var locURI = $street + $city;
+  var space = ' ';
+  locURI.split(space);
+  console.log(locURI);
+
   // AJAX Request
   $.getJSON(
     'http://api.nytimes.com/svc/search/v2/articlesearch.' +
