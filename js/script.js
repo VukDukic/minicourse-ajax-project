@@ -16,6 +16,7 @@ function loadData() {
   var $city = $('#city').val();
   var loc = $street + ', ' + $city;
   var locURI = $street + $city;
+  var space = ' ';
 
   // Update greeting
   $greeting.text("So, you want to live in " + loc + "?");
