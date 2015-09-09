@@ -26,6 +26,9 @@ function loadData() {
 
   // NYT Article Search Results
 
+  // Update NYT Header
+  $nytHeaderElem.text("Recent New York Times Articles in " + $city);
+
   var nytimesURL =
     'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
     $city + '&api-key=d063d63c7bf2373bfd5f718418f6e128:0:62722835';
@@ -33,19 +36,6 @@ function loadData() {
   // AJAX Request
   $.getJSON(nytimesURL, function (data) {
     console.log(data);
-
-    /*
-      $.each( data.response.docs,
-        function( webUrl, headline, snippet ) {
-        items.push( "<li class='article'>" + "<a href='" + webUrl +
-        "'>" + headline + "</a><p>" + snippet + "</p></li>" );
-      });
-
-      $( "<ul/>", {
-        "class": "my-new-list",
-        html: items.join( "" )
-      }).appendTo( "body" );
-    */
 
     // Declare data object pieces
     var articles = data.response.docs;
@@ -69,11 +59,6 @@ function loadData() {
       $nytElem.append(item);
     }
   });
-
-
-
-  // Update NYT Header
-  $nytHeaderElem.text("Recent New York Times Articles in " + loc);
 
   return false;
 }
