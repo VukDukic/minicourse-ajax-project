@@ -44,15 +44,23 @@ function loadData() {
           html: items.join( "" )
         }).appendTo( "body" );
       */
+
+      // Declare data object pieces
       var articles = data.response.docs;
       var numArticles = articles.length;
       var webUrl;
       var snippet;
       var headline;
+
+      // Declare list item
+      var item;
+
       // Iterate response
       for (var i = 0; i < numArticles; i++) {
         webUrl = articles[i].web_url;
         snippet = articles[i].snippet;
+        // Prevent null result from showing
+        if (snippet === null){snippet = "Click to view article";}
         headline = articles[i].headline.main;
         item = "<li class='article'>" + "<a href='" + webUrl +
           "'>" + headline + "</a><p>" + snippet + "</p></li>";
