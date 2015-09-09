@@ -27,7 +27,7 @@ function loadData() {
   // NYT Article Search Results
 
   // Update NYT Header
-  $nytHeaderElem.text("Recent New York Times Articles in " + $city);
+  $nytHeaderElem.text("New York Times Articles About " + $city);
 
   var nytimesURL =
     'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
