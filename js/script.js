@@ -27,7 +27,7 @@ function loadData() {
   // AJAX Request
   $.getJSON(
     'http://api.nytimes.com/svc/search/v2/articlesearch.' +
-    'json?q=barack+obama' +
+    'json?q=' + loc +
     '&api-key=d063d63c7bf2373bfd5f718418f6e128:0:62722835',
     function (data) {
       console.log(data);
