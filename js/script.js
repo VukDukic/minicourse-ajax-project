@@ -33,31 +33,30 @@ function loadData() {
       console.log(data);
 
       /*
-      var link = ;
-      var artHeader = ;
-      var firstPara = ;
         $.each( data.response.docs,
-          function( key, link, artHeader, firstPara ) {
-          articles.push( "<li id='" + key + "' class='article'>" +
-            "<a href='" + link + "'>" + artHeader + "</a><p>" +
-            firstPara + "</p></li>" );
+          function( webUrl, headline, snippet ) {
+          items.push( "<li class='article'>" + "<a href='" + webUrl +
+          "'>" + headline + "</a><p>" + snippet + "</p></li>" );
         });
 
         $( "<ul/>", {
           "class": "my-new-list",
-          html: articles.join( "" )
+          html: items.join( "" )
         }).appendTo( "body" );
       */
-
       var articles = data.response.docs;
-      console.log(articles);
-      var numArticles = data.response.docs.length;
-      console.log(numArticles);
+      var numArticles = articles.length;
+      var webUrl;
+      var snippet;
+      var headline;
       // Iterate response
       for (var i = 0; i < numArticles; i++) {
-        //$nytElem.text(articles[i]);
-        // <ul id="nytimes-articles" class="article-list"></ul>
-        console.log("count");
+        webUrl = articles[i].web_url;
+        snippet = articles[i].snippet;
+        headline = articles[i].headline.main;
+        item = "<li class='article'>" + "<a href='" + webUrl +
+          "'>" + headline + "</a><p>" + snippet + "</p></li>";
+        $nytElem.append(item);
       }
   });
 
