@@ -27,9 +27,8 @@ function loadData() {
   // NYT Article Search Results
 
   var nytimesURL =
-    'http://api.nytimes.com/svc/search/v2/articlesearch.' +
-    'json?q=' + $city + '&sort=newest&' +
-    'api-key=d063d63c7bf2373bfd5f718418f6e128:0:62722835';
+    'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
+    $city + '&api-key=d063d63c7bf2373bfd5f718418f6e128:0:62722835';
 
   // AJAX Request
   $.getJSON(nytimesURL, function (data) {
