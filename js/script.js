@@ -26,53 +26,49 @@ function loadData() {
 
   // NYT Article Search Results
 
-  var locURI = $street + $city;
-  var space = ' ';
-  locURI.split(space);
-  console.log(locURI);
+  var nytimesURL =
+    'http://api.nytimes.com/svc/search/v2/articlesearch.' +
+    'json?q=' + $city + '&sort=newest&' +
+    'api-key=d063d63c7bf2373bfd5f718418f6e128:0:62722835';
 
   // AJAX Request
-  $.getJSON(
-    'http://api.nytimes.com/svc/search/v2/articlesearch.' +
-    'json?q=' + locURI +
-    '&api-key=d063d63c7bf2373bfd5f718418f6e128:0:62722835',
-    function (data) {
-      console.log(data);
+  $.getJSON(nytimesURL, function (data) {
+    console.log(data);
 
-      /*
-        $.each( data.response.docs,
-          function( webUrl, headline, snippet ) {
-          items.push( "<li class='article'>" + "<a href='" + webUrl +
-          "'>" + headline + "</a><p>" + snippet + "</p></li>" );
-        });
+    /*
+      $.each( data.response.docs,
+        function( webUrl, headline, snippet ) {
+        items.push( "<li class='article'>" + "<a href='" + webUrl +
+        "'>" + headline + "</a><p>" + snippet + "</p></li>" );
+      });
 
-        $( "<ul/>", {
-          "class": "my-new-list",
-          html: items.join( "" )
-        }).appendTo( "body" );
-      */
+      $( "<ul/>", {
+        "class": "my-new-list",
+        html: items.join( "" )
+      }).appendTo( "body" );
+    */
 
-      // Declare data object pieces
-      var articles = data.response.docs;
-      var numArticles = articles.length;
-      var webUrl;
-      var snippet;
-      var headline;
+    // Declare data object pieces
+    var articles = data.response.docs;
+    var numArticles = articles.length;
+    var webUrl;
+    var snippet;
+    var headline;
 
-      // Declare list item
-      var item;
+    // Declare list item
+    var item;
 
-      // Iterate response
-      for (var i = 0; i < numArticles; i++) {
-        webUrl = articles[i].web_url;
-        snippet = articles[i].snippet;
-        // Prevent null result from showing
-        if (snippet === null){snippet = "Click to view article";}
-        headline = articles[i].headline.main;
-        item = "<li class='article'>" + "<a href='" + webUrl +
-          "'>" + headline + "</a><p>" + snippet + "</p></li>";
-        $nytElem.append(item);
-      }
+    // Iterate response
+    for (var i = 0; i < numArticles; i++) {
+      webUrl = articles[i].web_url;
+      snippet = articles[i].snippet;
+      // Prevent null result from showing
+      if (snippet === null){snippet = "Click to view article";}
+      headline = articles[i].headline.main;
+      item = "<li class='article'>" + "<a href='" + webUrl +
+        "'>" + headline + "</a><p>" + snippet + "</p></li>";
+      $nytElem.append(item);
+    }
   });
 
 
