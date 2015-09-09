@@ -16,7 +16,6 @@ function loadData() {
   var $city = $('#city').val();
   var loc = $street + ', ' + $city;
   var locURI = $street + $city;
-  var space = ' ';
 
   // Update greeting
   $greeting.text("So, you want to live in " + loc + "?");
@@ -29,7 +28,7 @@ function loadData() {
   // AJAX Request
   $.getJSON(
     'http://api.nytimes.com/svc/search/v2/articlesearch.' +
-    'json?q=' + locURI.split(space) +
+    'json?q=' + locURI +
     '&api-key=d063d63c7bf2373bfd5f718418f6e128:0:62722835',
     function (data) {
       console.log(data);
