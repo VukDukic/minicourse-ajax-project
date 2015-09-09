@@ -49,7 +49,7 @@ function loadData() {
         }).appendTo( "body" );
       */
 
-      var articles = data.response.docs[];
+      var articles = data.response.docs;
       console.log(articles);
       var numArticles = data.response.docs.length;
       console.log(numArticles);
