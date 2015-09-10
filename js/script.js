@@ -73,7 +73,8 @@ function loadData() {
     },
     error: function (data, status, error) {
       console.log('error', data, status, error);
-    });
+    }
+  });
 
       /*
       // Declare data object pieces
