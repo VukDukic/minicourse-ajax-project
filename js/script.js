@@ -23,7 +23,7 @@ function loadData() {
   // Update greeting
   $greeting.text("So, you want to live in " + loc + "?");
 
-  // NYT Article Search Results
+  //// NYT Article Search Results ////
   var nytimesURL =
     'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
     $city + '&api-key=d063d63c7bf2373bfd5f718418f6e128:0:62722835';
@@ -59,6 +59,16 @@ function loadData() {
     // Update NYT Header
     $nytHeaderElem.text("New York Times Articles Could Not Be Loaded");
   });
+
+  //// Relevant Wikipedia Articles ////
+  var wikiURL = 'https://en.wikipedia.org/w/api.php?action=query' +
+    '&titles=' + $city + '&prop=revisions&rvprop=content&format=json';
+
+  // AJAX Request
+  $.ajax(wikiURL, jsonp).done(function (data) {
+    console.log(data);
+    $wikiElem.text("blah");
+  })
 
   return false;
 }
