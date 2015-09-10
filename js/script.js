@@ -67,9 +67,13 @@ function loadData() {
   // AJAX Request
   $.ajax({
     url: wikiURL,
-    dataType: 'jsonp'
-    }).done(function (data) {
-      console.log(data);
+    dataType: 'jsonp',
+    success: function (data, status, error) {
+      console.log('success', data);
+    },
+    error: function (data, status, error) {
+      console.log('error', data, status, error);
+    });
 
       /*
       // Declare data object pieces
@@ -94,7 +98,6 @@ function loadData() {
         $wikiElem.append(item);
       }
       */
-    });
 
   return false;
 }
