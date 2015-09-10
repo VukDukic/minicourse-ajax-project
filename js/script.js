@@ -61,15 +61,15 @@ function loadData() {
   });
 
   //// Relevant Wikipedia Articles ////
-  var wikiURL = 'https://en.wikipedia.org/w/api.php?action=query' +
-    '&titles=' + $city + '&prop=revisions&rvprop=content&format=json';
+  var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch' +
+    '&search=' + $city + '&format=json&callback=wikicallback';
 
   // AJAX Request
   $.ajax({
-    url: wikiURL,
+    url: wikiUrl,
     dataType: 'jsonp',
-    success: function (data) {
-      console.log('success', data);
+    success: function (response) {
+      console.log(response);
     },
     error: function (e) {
       console.log('error');
