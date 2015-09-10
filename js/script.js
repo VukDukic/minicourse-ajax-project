@@ -86,12 +86,9 @@ function loadData() {
     },
     error: function (e) {
       console.log('e');
+      $wikiElem.text('Wikipedia Links Could Not Be Loaded');
     }
   });
-
-      /*
-
-      */
 
   return false;
 }
