@@ -84,8 +84,8 @@ function loadData() {
         $wikiElem.append(item);
       }
     },
-    error: function (e) {
-      console.log('e');
+    error: function (data, status, error) {
+      console.log(error);
       $wikiElem.text('Wikipedia Links Could Not Be Loaded');
     }
   });
