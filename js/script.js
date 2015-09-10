@@ -16,19 +16,14 @@ function loadData() {
   var $city = $('#city').val();
   var loc = $street + ', ' + $city;
 
-
-  // Update greeting
-  $greeting.text("So, you want to live in " + loc + "?");
-
   var streetviewUrl = 'https://maps.googleapis.com/maps/api/' +
     'streetview?size=600x300&location=' + loc + '';
   $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 
+  // Update greeting
+  $greeting.text("So, you want to live in " + loc + "?");
+
   // NYT Article Search Results
-
-  // Update NYT Header
-  $nytHeaderElem.text("New York Times Articles About " + $city);
-
   var nytimesURL =
     'http://api.nytimes.com/svc/search/v2/articlesearch.json?q=' +
     $city + '&api-key=d063d63c7bf2373bfd5f718418f6e128:0:62722835';
@@ -36,7 +31,8 @@ function loadData() {
   // AJAX Request
   $.getJSON(nytimesURL, function (data) {
     console.log(data);
-
+    // Update NYT Header
+    $nytHeaderElem.text("New York Times Articles About " + $city);
     // Declare data object pieces
     var articles = data.response.docs;
     var numArticles = articles.length;
@@ -58,6 +54,9 @@ function loadData() {
         "'>" + headline + "</a><p>" + snippet + "</p></li>";
       $nytElem.append(item);
     }
+  }).error(function(){
+    // Update NYT Header
+    $nytHeaderElem.text("Could Not Load New York Times Articles");
   });
 
   return false;
