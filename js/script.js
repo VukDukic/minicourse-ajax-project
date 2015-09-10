@@ -62,7 +62,7 @@ function loadData() {
 
   //// Relevant Wikipedia Articles ////
   var wikiURL = 'https://en.wikipedia.org/w/api.php?action=query' +
-    '&titles=' + $city + '&format=json';
+    '&titles=' + $city + '&prop=revisions&rvprop=content&format=json';
 
   // AJAX Request
   $.ajax({
