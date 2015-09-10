@@ -68,7 +68,7 @@ function loadData() {
   $.ajax(wikiURL, jsonp).done(function (data) {
     console.log(data);
     $wikiElem.text("blah");
-  })
+  });
 
   return false;
 }
