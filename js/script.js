@@ -65,7 +65,10 @@ function loadData() {
     '&titles=' + $city + '&prop=revisions&rvprop=content&format=json';
 
   // AJAX Request
-  $.ajax(wikiURL, jsonp).done(function (data) {
+  $.ajax({
+    url: wikiURL,
+    dataType: 'jsonp'
+    }).done(function (data) {
     console.log(data);
     $wikiElem.text("blah");
   });
