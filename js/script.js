@@ -62,15 +62,39 @@ function loadData() {
 
   //// Relevant Wikipedia Articles ////
   var wikiURL = 'https://en.wikipedia.org/w/api.php?action=query' +
-    '&titles=' + $city + '&prop=revisions&rvprop=content&format=json';
+    '&titles=' + $city + '&prop=revisions&rvprop=content&format=jsonfm';
 
   // AJAX Request
   $.ajax({
     url: wikiURL,
     dataType: 'jsonp'
     }).done(function (data) {
-    console.log(data);
-    $wikiElem.text("blah");
+      console.log(data);
+
+      /*
+      // Declare data object pieces
+      var articles = data.query.pages;
+      var numArticles = articles.length;
+      var webUrl;
+      var snippet;
+      var headline;
+
+      // Declare list item
+      var item;
+
+      // Iterate response
+      for (var i = 0; i < numArticles; i++) {
+        webUrl = articles[i].web_url;
+        snippet = articles[i].snippet;
+        // Prevent null result from showing
+        if (snippet === null){snippet = "Click to view article";}
+        headline = articles[i].headline.main;
+        item = "<li class='article'>" + "<a href='" + webUrl +
+          "'>" + headline + "</a><p>" + snippet + "</p></li>";
+        $wikiElem.append(item);
+      }
+      */
+    }
   });
 
   return false;
