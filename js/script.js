@@ -94,8 +94,7 @@ function loadData() {
         $wikiElem.append(item);
       }
       */
-    }
-  });
+    });
 
   return false;
 }
