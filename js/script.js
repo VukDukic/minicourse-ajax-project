@@ -61,7 +61,7 @@ function loadData() {
   });
 
   //// Relevant Wikipedia Articles ////
-  var wikiUrl = 'https://en.wikipedia.org/w/api.php?action=opensearch' +
+  var wikiUrl = 'https://en.wikiASDFpedia.org/w/api.php?action=opensearch' +
     '&search=' + $city + '&format=json&callback=wikicallback';
 
   // AJAX Request
